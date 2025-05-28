@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Sign Up</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('data:image/jpeg;base64,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'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 400px;
+      margin: 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9); /* Transparent background */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 380px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .form-toggle {
+      text-align: center;
+    }
+
+    .form-toggle a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .form-toggle a:hover {
+      text-decoration: underline;
+    }
+
+    #signup-form, #login-form {
+      display: block;
+    }
+
+    #signup-error, #login-error {
+      color: red;
+      display: none;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Login Form -->
+    <div id="login-form">
+      <h1>Login</h1>
+      <form id="login-form-inner">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+        <p id="login-error">Invalid credentials, please try again.</p>
+      </form>
+      <p class="form-toggle">Don't have an account? <a href="javascript:void(0)" onclick="showSignup()">Sign Up</a></p>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" style="display:none;">
+      <h1>Sign Up</h1>
+      <form id="signup-form-inner">
+        <label for="new-username">Username:</label>
+        <input type="text" id="new-username" name="new-username" required>
+
+        <label for="new-password">Password:</label>
+        <input type="password" id="new-password" name="new-password" required>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <button type="submit">Sign Up</button>
+        <p id="signup-error">Passwords do not match or invalid input.</p>
+      </form>
+      <p class="form-toggle">Already have an account? <a href="javascript:void(0)" onclick="showLogin()">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Show Sign Up Form
+    function showSignup() {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('signup-form').style.display = 'block';
+    }
+
+    // Show Login Form
+    function showLogin() {
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('login-form').style.display = 'block';
+    }
+
+    // Login form submission
+    document.getElementById("login-form-inner").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Simple login validation (for demonstration purposes)
+      if (username === "admin" && password === "password123") {
+        alert("Login successful!");
+        // Redirect to the main page
+        window.location.href = "index.html"; // Replace with actual homepage URL
+      } else {
+        document.getElementById("login-error").style.display = 'block';
+      }
+    });
+
+    // Sign Up form submission
+    document.getElementById("signup-form-inner").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const newUsername = document.getElementById("new-username").value;
+      const newPassword = document.getElementById("new-password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      if (newPassword === confirmPassword) {
+        // Simulate storing the username and password
+        localStorage.setItem("username", newUsername); // For demonstration, use localStorage
+
+        // Redirect to login page after successful sign up
+        alert("Sign up successful! You can now log in.");
+        showLogin(); // Switch to login form
+      } else {
+        document.getElementById("signup-error").style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

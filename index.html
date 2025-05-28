@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Interior Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>AR INTERIOR DESIGN</h1>
+        <nav>
+            <ul>
+                <li><a href="shopping.html">Furniture shopping</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2nd header Section -->
+    <main>
+
+        <section id="home" class="welcome-section">
+            <h2>Visualize Your Room in Real Time</h2>
+            <p>Use AR to plan and customize your interior designs like never before.</p>
+            <button id="start-ar" onclick="startAR()">Start Designing</button>
+        </section>
+
+        <div id="wrapper">
+            <!-- Features Section -->
+            <section id="features">
+                <h2>Features</h2>
+                <div class="feature-card">
+                    <h3>Visualize Your Space</h3>
+                    <img src="https://cdn.prod.website-files.com/5894a32730554b620f7bf36d/6438179f5449863f4442afdc_5eb028e560e42f35f4d6e612_interior-designer-software-for-3d-visualization.jpeg"
+                        alt="">
+                    <p>See furniture in your room using AR technology.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Custom Furniture</h3>
+                    <img src="https://scontent.fdel1-8.fna.fbcdn.net/v/t39.30808-6/241276278_359847839149658_492891289621759806_n.jpg?stp=dst-jpg_s960x960&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=5jb2Fy0_y8gQ7kNvgHyPJCu&_nc_zt=23&_nc_ht=scontent.fdel1-8.fna&_nc_gid=AxZiMJQvcrnYjmP7CVj6Toz&oh=00_AYDXdFRMGbAYSskfj2YlHZpp75m8P59J60Yjoj02G5VNBw&oe=6743A5A6"
+                        alt="">
+                    <p>Customize furniture to suit your personal style.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Seamless Shopping</h3>
+                    <img src="https://media.licdn.com/dms/image/v2/D5612AQFg4AMQ38M4FQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1712149570411?e=1737590400&v=beta&t=bya1o3YKc78VOphTOTB6EKOJIi8jJyiUOTQ0QHHStQc"
+                        alt="">
+                    <p>Purchase items directly from the app with ease.</p>
+                </div>
+            </section>
+
+            <!-- Design Your Room Section -->
+            <h2>Design Your Room</h2>
+            <div class="whole-view">
+
+                <div id="design-your-furniture">Furniture
+                    <div id="ar-view">
+                        <p>Your AR view will appear here.</p>
+                    </div>
+                    <div class="ar-controls">
+                        <button id="add-furniture">Add Furniture</button>
+                        <button id="remove-furniture">Remove Furniture</button>
+                        <button id="save-design">Save Design</button>
+                    </div>
+                    <div id="design-summary">
+                        <!-- Saved design will appear here -->
+                    </div>
+                </div>
+                <div id="integration-view">
+                    <h3>Integration View</h3>
+                    <div id="room-with-furniture" class="integration-box">
+                        <!-- Room and furniture images will be dynamically placed here -->
+                    </div>
+                </div>
+
+                <div id="design-your-room">Room
+                    <div id="ar-vie">
+                        <p>Your AR view will appear here.</p>
+                    </div>
+                    <div class="ar-controls">
+                        <button id="add-picture">Add Furniture</button>
+                        <button id="remove-picture">Remove Furniture</button>
+                        <button id="save-designs">Save Design</button>
+                    </div>
+                    <div id="design-summarie">
+                        <!-- Saved design will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AR Section -->
+        <div id="ar-section">
+            <h2>AR Room Visualization</h2>
+            <p>Use your device's camera to visualize furniture in your room!</p>
+            <a-scene embedded arjs>
+                <!-- Room Marker -->
+                <a-marker type="pattern" url="room-marker.patt">
+                    <!-- Furniture Model -->
+                    <a-entity 
+                        gltf-model="path-to-furniture-model.glb" 
+                        scale="0.5 0.5 0.5" 
+                        position="0 0 0">
+                    </a-entity>
+                </a-marker>
+
+                <!-- AR Camera -->
+                <a-entity camera></a-entity>
+            </a-scene>
+        </div>
+
+        <!-- Chatbot Interface -->
+        <div id="chatbot-container" class="chatbot-container hidden">
+            <div id="chat-log" class="chat-log"></div>
+            <div class="chat-input-container">
+                <input type="text" class="user-input" placeholder="Type your message here...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+
+        <!-- Chatbot box -->
+        <div id="chatbot-container">
+            <div id="chatbox">
+                <h3>Chatbot</h3>
+                <div id="chat-log"></div>
+                <div id="send">
+                    <input type="text" class="user-input" placeholder="Type your message..." />
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Contact devinagandhi2005@gmail.com for more details</p>
+        </footer>
+
+        <!-- JavaScript File -->
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+        <script src="script.js"></script>
+    </main>
+</body>
+
+</html>
